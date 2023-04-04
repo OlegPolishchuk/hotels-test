@@ -1,0 +1,12 @@
+.wrapper {
+  position: relative;
+}
+
+.input_error {
+  color: #EB1717;
+  font-size: 12px;
+
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}

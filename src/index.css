@@ -1,0 +1,81 @@
+:root {
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #E5E5E5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --inputs-radius: 4px;
+  --main-radius: 16px;
+  --button-color: #fff;
+
+  --main-color: #424242;
+  --error-color: #EB1717;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after, *:before {
+  box-sizing: inherit;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: var(--main-color);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  background: transparent;
+}
+
+input {
+  background: #FFFFFF;
+  border: 1px solid #C9CACC;
+  border-radius: var(--inputs-radius);
+
+  padding: 16px;
+
+  outline: none;
+  color: var(--main-color)
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.full {
+  width: 100%;
+}

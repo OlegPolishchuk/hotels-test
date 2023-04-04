@@ -1,0 +1,32 @@
+.login {
+  min-height: 100vh;
+  background-image: url("src/assets/login_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 410px;
+  padding: 32px;
+
+  border-radius: var(--main-radius);
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  text-align: center;
+}
