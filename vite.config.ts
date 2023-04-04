@@ -9,6 +9,9 @@ export default defineConfig({
       shared: '/src/shared',
       pages: '/src/pages',
       assets: '/src/assets',
+      components: '/src/components',
+      store: '/src/store',
+      selectors: '/src/store/selectors',
     },
   },
 });

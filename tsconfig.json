@@ -20,6 +20,9 @@
       "shared/*": ["shared/*"],
       "assets/*": ["assets/*"],
       "pages": ["pages"],
+      "components": ["components"],
+      "store": ["store"],
+      "selectors": ["store/selectors"]
     }
   },
   "include": ["src"],
