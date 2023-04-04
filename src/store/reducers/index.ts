@@ -8,7 +8,7 @@ interface InitialState {
 
 const initialState: InitialState = {
   isInitialise: false,
-  isLoading: false,
+  isLoading: true,
   isUserAuth: false,
 };
 
@@ -32,5 +32,4 @@ const appSlice = createSlice({
 });
 
 export const appReducer = appSlice.reducer;
-
 export const { initializeSuccess, initializeReject, startInitialize } = appSlice.actions;

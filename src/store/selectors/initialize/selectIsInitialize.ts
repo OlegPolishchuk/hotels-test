@@ -1,3 +1,4 @@
 import { RootState } from 'store/store';
 
-export const selectIsInitialize = (state: RootState): boolean => state.app.isInitialise;
+export const selectIsInitialize = (state: RootState): boolean =>
+  state.appReducer.isInitialise;
