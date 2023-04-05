@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--color-secondary)
+}
+
+.icon {
+  stroke: #41522E;
+}
+
+.button:hover {
+  color: var(--main-radius)
+}
+
+.button:hover .icon {
+  stroke: var(--color-main);
+}
+
+.button:active {
+  color: var(--color-error)
+}
+
+.button:active .icon {
+  stroke: var(--color-error);
+}

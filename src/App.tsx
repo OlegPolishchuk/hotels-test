@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import { Login } from 'pages';
+import { Login, Main } from 'pages';
 import { GlobalLoader, ProtectedRoutes } from 'shared/components';
 import { ROUTES } from 'shared/constants';
 import { useAppSelector } from 'shared/hooks';
@@ -16,18 +16,15 @@ export const App = (): ReactElement => {
 
   return (
     <div>
-      {appStatus === 'loading' ? (
-        <div>
-          <GlobalLoader />
-        </div>
-      ) : (
+      {appStatus === 'loading' && <GlobalLoader />}
+      {isInitialised && (
         <Routes>
           <Route path={ROUTES.login} element={<Login />} />
           <Route
             path={ROUTES.main}
             element={
               <ProtectedRoutes isInitialized={isInitialised} isUserAuth={isUserAuth}>
-                <div>Main Content</div>
+                <Main />
               </ProtectedRoutes>
             }
           />

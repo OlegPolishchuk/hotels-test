@@ -4,7 +4,7 @@
   height: 50px;
   background: linear-gradient(90deg, rgba(65,82,46,1) 0%, rgba(190,128,34,1) 100%);
 
-  color: var(--button-color);
+  color: var(--color-button);
   line-height: 19px;
 }
 

@@ -18,7 +18,7 @@ export const ProtectedRoutes = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isUserAuth && isInitialized) {
+    if (!isUserAuth) {
       navigate(ROUTES.login);
     }
   }, [isUserAuth, isInitialized]);

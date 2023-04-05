@@ -11,10 +11,13 @@
 
   --inputs-radius: 4px;
   --main-radius: 16px;
-  --button-color: #fff;
 
-  --main-color: #424242;
-  --error-color: #EB1717;
+  --color-main: #424242;
+  --color-secondary: #41522E;
+  --color-error: #EB1717;
+  --color-button: #fff;
+
+  --transition: all .1s ease;
 }
 
 html {
@@ -24,6 +27,7 @@ html {
 *,
 *:after, *:before {
   box-sizing: inherit;
+  transition: var(--transition);
 }
 
 a {
@@ -40,7 +44,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  color: var(--main-color);
+  color: var(--color-main);
 }
 
 h1 {
@@ -64,11 +68,18 @@ input {
   padding: 16px;
 
   outline: none;
-  color: var(--main-color)
+  color: var(--color-main)
 }
 
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 h2 {

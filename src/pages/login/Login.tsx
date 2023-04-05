@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { selectIsUserAuth } from 'selectors';
@@ -14,9 +14,11 @@ export const Login = (): ReactElement => {
 
   const isUserAuth = useAppSelector(selectIsUserAuth);
 
-  if (isUserAuth) {
-    navigate(ROUTES.main);
-  }
+  useEffect(() => {
+    if (isUserAuth) {
+      navigate(ROUTES.main);
+    }
+  }, [isUserAuth]);
 
   return (
     <div className={styles.login}>
