@@ -1,23 +1,21 @@
 import React, { ReactElement } from 'react';
 
-import { selectIsAppLoading } from 'selectors';
+import { useNavigate } from 'react-router-dom';
+import { selectIsUserAuth } from 'selectors';
 
 import styles from './Login.module.css';
 
 import { LoginForm } from 'components';
+import { ROUTES } from 'shared/constants';
 import { useAppSelector } from 'shared/hooks';
-import {GlobalLoader} from "shared/components";
-
 
 export const Login = (): ReactElement => {
-  const isLoading = useAppSelector(selectIsAppLoading);
+  const navigate = useNavigate();
 
-  if (isLoading) {
-    return (
-      <div>
-        <GlobalLoader />
-      </div>
-    );
+  const isUserAuth = useAppSelector(selectIsUserAuth);
+
+  if (isUserAuth) {
+    navigate(ROUTES.main);
   }
 
   return (

@@ -4,21 +4,24 @@ import { useForm } from 'react-hook-form';
 
 import styles from 'pages/login/Login.module.css';
 import { Button, Input } from 'shared/components';
+import { useAppDispatch } from 'shared/hooks';
+import { loginUser } from 'store/sagas/user/actions';
+import { LoginFormData } from 'types';
 
 const MAIN_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-interface FormData {
-  login: string;
-  password: string;
-}
 export const LoginForm = (): ReactElement => {
+  const dispatch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ mode: 'onBlur' });
+  } = useForm<LoginFormData>({ mode: 'onBlur' });
 
-  const onSubmit = handleSubmit(data => console.log(data));
+  const onSubmit = handleSubmit(data => {
+    dispatch(loginUser(data));
+  });
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>

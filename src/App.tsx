@@ -1,39 +1,38 @@
-import { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { selectIsAppLoading, selectIsInitialize } from 'selectors';
 
 import { Login } from 'pages';
-import { ProtectedRoutes } from 'shared/components';
+import { GlobalLoader, ProtectedRoutes } from 'shared/components';
 import { ROUTES } from 'shared/constants';
-import { useAppDispatch, useAppSelector } from 'shared/hooks';
-import { startInitialize } from 'store/reducers';
+import { useAppSelector } from 'shared/hooks';
+import { selectAppStatus, selectIsInitialize, selectIsUserAuth } from 'store/selectors';
 
 export const App = (): ReactElement => {
-  const dispatch = useAppDispatch();
-
-  const isLoading = useAppSelector(selectIsAppLoading);
-  const isInit = useAppSelector(selectIsInitialize);
-
-  console.log(`isLoading =`, isLoading);
-  console.log(`isInit =`, isInit);
-
-  useEffect(() => {
-    dispatch(startInitialize());
-  }, []);
+  const isUserAuth = useAppSelector(selectIsUserAuth);
+  const appStatus = useAppSelector(selectAppStatus);
+  const isInitialised = useAppSelector(selectIsInitialize);
 
   return (
-    <Routes>
-      <Route path={ROUTES.login} element={<Login />} />
-      <Route
-        path={ROUTES.main}
-        element={
-          <ProtectedRoutes isUserAuth={false}>
-            <div>Main Content</div>
-          </ProtectedRoutes>
-        }
-      />
-    </Routes>
+    <div>
+      {appStatus === 'loading' ? (
+        <div>
+          <GlobalLoader />
+        </div>
+      ) : (
+        <Routes>
+          <Route path={ROUTES.login} element={<Login />} />
+          <Route
+            path={ROUTES.main}
+            element={
+              <ProtectedRoutes isInitialized={isInitialised} isUserAuth={isUserAuth}>
+                <div>Main Content</div>
+              </ProtectedRoutes>
+            }
+          />
+        </Routes>
+      )}
+    </div>
   );
 };

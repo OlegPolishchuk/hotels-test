@@ -22,7 +22,9 @@
       "pages": ["pages"],
       "components": ["components"],
       "store": ["store"],
-      "selectors": ["store/selectors"]
+      "selectors": ["store/selectors"],
+      "services": ["services"],
+      "types": ["types"]
     }
   },
   "include": ["src"],

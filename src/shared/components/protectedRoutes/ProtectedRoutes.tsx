@@ -7,16 +7,21 @@ import { ROUTES } from 'shared/constants';
 interface Props {
   children: ReactNode;
   isUserAuth: boolean;
+  isInitialized: boolean;
 }
 
-export const ProtectedRoutes = ({ children, isUserAuth }: Props): ReactElement => {
+export const ProtectedRoutes = ({
+  children,
+  isUserAuth,
+  isInitialized,
+}: Props): ReactElement => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isUserAuth) {
+    if (!isUserAuth && isInitialized) {
       navigate(ROUTES.login);
     }
-  }, [isUserAuth]);
+  }, [isUserAuth, isInitialized]);
 
   return <div>{children}</div>;
 };

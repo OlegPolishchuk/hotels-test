@@ -1,2 +1,3 @@
 export { selectIsInitialize } from './selectIsInitialize';
-export { selectIsAppLoading } from './selectIsAppLoading';
+export { selectAppStatus } from './selectAppStatus';
+export { selectIsUserAuth } from './selectIsUserAuth';

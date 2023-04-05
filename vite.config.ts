@@ -12,6 +12,8 @@ export default defineConfig({
       components: '/src/components',
       store: '/src/store',
       selectors: '/src/store/selectors',
+      services: '/src/services',
+      types: '/src/types',
     },
   },
 });
