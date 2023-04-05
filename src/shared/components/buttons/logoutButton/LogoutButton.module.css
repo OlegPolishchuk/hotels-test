@@ -4,6 +4,11 @@
   align-items: center;
   gap: 12px;
 
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
   color: var(--color-secondary)
 }
 

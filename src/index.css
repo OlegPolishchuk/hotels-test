@@ -16,6 +16,8 @@
   --color-secondary: #41522E;
   --color-error: #EB1717;
   --color-button: #fff;
+  --color-inactive: #ADADAD;
+  --color-gray: #6C6845;
 
   --transition: all .1s ease;
 }
@@ -71,7 +73,7 @@ input {
   color: var(--color-main)
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
