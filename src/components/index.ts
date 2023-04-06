@@ -5,3 +5,4 @@ export { Breadcrumbs } from './breadcrumbs/Breadcrumbs';
 export { Slider } from './slider/Slider';
 export { Hotels } from './hotels/Hotels';
 export { HotelCard } from './hotelCard/HotelCard';
+export { Favorites } from './favorites/Favorites';

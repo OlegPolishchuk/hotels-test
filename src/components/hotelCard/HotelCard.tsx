@@ -1,32 +1,47 @@
 import React, { ReactElement } from 'react';
 
-import { selectCheckIn, selectCheckOut } from 'selectors';
+import { selectCheckIn, selectCheckOut, selectFavorites } from 'selectors';
 
 import styles from './HotelCard.module.css';
 
 import hotelIcon from 'assets/icon_hotel.svg';
 import { LikeButton, Rating } from 'shared/components';
-import { useAppSelector } from 'shared/hooks';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { formatDate, formatDaysCount } from 'shared/ustils';
+import { favoritesActions } from 'store/reducers';
 import { Hotel } from 'types';
 
 interface Props {
   hotel: Hotel;
+  withIcon?: boolean;
 }
 
-export const HotelCard = ({ hotel }: Props): ReactElement => {
-  const { hotelName, stars, priceAvg } = hotel;
+export const HotelCard = ({ hotel, withIcon = true }: Props): ReactElement => {
+  const { hotelName, stars, priceAvg, hotelId } = hotel;
+
+  const dispatch = useAppDispatch();
 
   const checkIn = useAppSelector(selectCheckIn);
   const daysCount = useAppSelector(selectCheckOut);
+  const favoriteHotels = useAppSelector(selectFavorites);
+
+  const likedState = !!favoriteHotels.find(
+    favoriteHotel => hotel.hotelId === favoriteHotel.hotelId,
+  );
+
+  const handleToggleFavorite = (): void => {
+    const { addHotel, removeHotel } = favoritesActions;
+
+    dispatch(likedState ? removeHotel(hotelId) : addHotel(hotel));
+  };
 
   return (
     <div className={styles.hotel}>
-      <img src={hotelIcon} alt="hotel icon" />
+      {withIcon && <img src={hotelIcon} alt="hotel icon" />}
       <div className={styles.description}>
         <div className={styles.header}>
           <h4 className={styles.title}>{hotelName}</h4>
-          <LikeButton />
+          <LikeButton onClick={handleToggleFavorite} isLike={likedState} />
         </div>
         <p className={styles.date}>
           {formatDate(checkIn, 'D MMMM YYYY')}{' '}

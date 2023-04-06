@@ -1,0 +1,1 @@
+export { selectFavorites } from './selectFavorites';

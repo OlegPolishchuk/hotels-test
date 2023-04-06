@@ -4,8 +4,7 @@ import { selectCheckIn, selectCheckOut, selectLocation } from 'selectors';
 
 import styles from './Main.module.css';
 
-import { Breadcrumbs, Header, Hotels, SearchForm, Slider } from 'components';
-import { SortSwitcher } from 'shared/components';
+import { Breadcrumbs, Favorites, Header, Hotels, SearchForm, Slider } from 'components';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { formatCheckOut, formatDate } from 'shared/ustils';
 import { fetchHotels } from 'store/sagas/hotels/hotels';
@@ -30,14 +29,7 @@ export const Main = (): ReactElement => {
         <aside className={`${styles.aside}`}>
           <SearchForm />
 
-          <form className="wrapper">
-            <h2>Избранное</h2>
-
-            <div>
-              <SortSwitcher isActive title="Рейтинг" callback={() => {}} />
-              <SortSwitcher title="Цена" callback={() => {}} />
-            </div>
-          </form>
+          <Favorites />
         </aside>
 
         <main className={`${styles.mainContent} wrapper`}>
@@ -50,9 +42,7 @@ export const Main = (): ReactElement => {
             <Slider />
           </div>
 
-          <div className={styles.hotels}>
-            <Hotels />
-          </div>
+          <Hotels />
         </main>
       </div>
     </div>

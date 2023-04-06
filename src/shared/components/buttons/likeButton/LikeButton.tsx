@@ -5,37 +5,30 @@ import React, {
   ReactElement,
 } from 'react';
 
+import styles from './LikeButton.module.css';
+
 interface Props
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  callback?: () => void;
+  isLike: boolean;
 }
 export const LikeButton = ({
-  callback,
+  isLike = false,
   onClick,
   disabled,
   ...restProps
 }: Props): ReactElement => {
+  console.log('Like button rendered');
   const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
-    if (onClick) {
-      onClick(event);
-    }
-
-    if (callback) {
-      callback();
-    }
+    onClick && onClick(event);
   };
+
+  const activeClassName = isLike ? styles.active : '';
 
   return (
     <div>
-      <button
-        className="button__like"
-        type="button"
-        onClick={handleClick}
-        disabled={disabled}
-        {...restProps}
-      >
+      <button type="button" onClick={handleClick} disabled={disabled} {...restProps}>
         <svg
-          className="button__like__img"
+          className={`${styles.button__like__img} ${activeClassName}`}
           width="23"
           height="20"
           viewBox="0 0 23 20"

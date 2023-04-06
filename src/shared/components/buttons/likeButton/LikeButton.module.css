@@ -1,0 +1,13 @@
+.button__like__img {
+  fill: none;
+  stroke: #C4C4C4;
+}
+
+.button__like__img:hover {
+  fill: #EBEBEB;
+}
+
+.button__like__img.active {
+  fill: #E55858;
+  stroke: #E55858;
+}

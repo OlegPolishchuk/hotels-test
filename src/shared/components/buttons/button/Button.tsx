@@ -6,6 +6,8 @@ import React, {
   ReactNode,
 } from 'react';
 
+import styles from './Button.module.css';
+
 interface Props
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   children?: ReactElement | ReactNode;
@@ -30,7 +32,7 @@ export const Button = ({
 
   return (
     <button
-      className="button"
+      className={styles.button}
       onClick={handleClick}
       disabled={disabled}
       type="button"

@@ -1,0 +1,18 @@
+.button {
+  border-radius: var(--inputs-radius);
+  padding: 10px 17px;
+  height: 50px;
+  background: linear-gradient(90deg, rgba(65,82,46,1) 0%, rgba(190,128,34,1) 100%);
+
+  color: var(--color-button);
+  line-height: 19px;
+}
+
+.button:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+}
+
+.button:focus,
+.button:focus-visible {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%)
+}
