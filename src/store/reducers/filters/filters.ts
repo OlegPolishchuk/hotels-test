@@ -1,18 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import dayjs from 'dayjs';
 
 import { RequestParams } from 'types';
 
 const initialState: RequestParams = {
   location: 'Москва',
-  checkIn: '2023-04-06',
-  checkOut: '2023-04-07',
+  checkIn: dayjs().format('YYYY-MM-DD'),
+  checkOut: '1',
 };
 
 const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    setFilter: (state, action) => {
+    setFilter: (state, action: PayloadAction<RequestParams>) => {
       return { ...state, ...action.payload };
     },
   },

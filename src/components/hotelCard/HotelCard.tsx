@@ -1,9 +1,13 @@
 import React, { ReactElement } from 'react';
 
+import { selectCheckIn, selectCheckOut } from 'selectors';
+
 import styles from './HotelCard.module.css';
 
 import hotelIcon from 'assets/icon_hotel.svg';
 import { LikeButton, Rating } from 'shared/components';
+import { useAppSelector } from 'shared/hooks';
+import { formatDate, formatDaysCount } from 'shared/ustils';
 import { Hotel } from 'types';
 
 interface Props {
@@ -12,6 +16,9 @@ interface Props {
 
 export const HotelCard = ({ hotel }: Props): ReactElement => {
   const { hotelName, stars, priceAvg } = hotel;
+
+  const checkIn = useAppSelector(selectCheckIn);
+  const daysCount = useAppSelector(selectCheckOut);
 
   return (
     <div className={styles.hotel}>
@@ -22,7 +29,10 @@ export const HotelCard = ({ hotel }: Props): ReactElement => {
           <LikeButton />
         </div>
         <p className={styles.date}>
-          7 июля 2020 <span>- день</span>
+          {formatDate(checkIn, 'D MMMM YYYY')}{' '}
+          <span>
+            - {daysCount} {formatDaysCount(+daysCount)}
+          </span>
         </p>
 
         <div className={styles.footer}>
