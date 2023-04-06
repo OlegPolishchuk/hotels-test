@@ -28,6 +28,8 @@ export const App = (): ReactElement => {
               </ProtectedRoutes>
             }
           />
+
+          <Route path="*" element={<Main />} />
         </Routes>
       )}
     </div>

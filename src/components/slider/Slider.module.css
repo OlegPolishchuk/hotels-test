@@ -1,0 +1,10 @@
+.slider {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider img {
+  width: 164px;
+  height: 149px;
+  border-radius: 10px;
+}

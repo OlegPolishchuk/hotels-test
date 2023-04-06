@@ -49,10 +49,6 @@ body {
   color: var(--color-main);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
 button {
   border: none;
@@ -73,20 +69,32 @@ input {
   color: var(--color-main)
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   margin: 0;
+  font-style: normal;
 }
 
 h1 {
-  font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
 }
 
 h2 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+h3 {
   font-size: 24px;
   font-weight: 500;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 22px;
 }
 
 .full {

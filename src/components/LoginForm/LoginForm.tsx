@@ -25,7 +25,6 @@ export const LoginForm = (): ReactElement => {
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
-      <h2 className={styles.title}>Simple Hotel Check</h2>
       <Input
         className="full"
         labelTitle="Логин"

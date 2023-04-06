@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import styles from './Main.module.css';
 
-import { Header, SearchForm } from 'components';
+import { Breadcrumbs, Header, Hotels, SearchForm, Slider } from 'components';
 import { SortSwitcher } from 'shared/components';
 
 export const Main = (): ReactElement => {
@@ -16,11 +16,28 @@ export const Main = (): ReactElement => {
           <form className="wrapper">
             <h2>Избранное</h2>
 
-            <SortSwitcher />
+            <div>
+              <SortSwitcher isActive title="Рейтинг" callback={() => {}} />
+              <SortSwitcher title="Цена" callback={() => {}} />
+            </div>
           </form>
         </aside>
+
+        <main className={`${styles.mainContent} wrapper`}>
+          <div className={styles.header}>
+            <Breadcrumbs paths={['Отели', 'Москва']} />
+            <time className={styles.time}>7 Июля 2020</time>
+          </div>
+
+          <div className={styles.slider}>
+            <Slider />
+          </div>
+
+          <div className={styles.hotels}>
+            <Hotels />
+          </div>
+        </main>
       </div>
-      <main />
     </div>
   );
 };

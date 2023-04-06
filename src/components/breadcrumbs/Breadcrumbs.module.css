@@ -1,0 +1,9 @@
+.arrow {
+  color: var(--color-inactive);
+
+  margin: 0 20px;
+}
+
+.arrow:last-child {
+  display: none;
+}
