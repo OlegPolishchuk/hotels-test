@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import { userReducer, appReducer } from 'store/reducers';
+import { userReducer, appReducer, hotelsReducer, filterReducer } from 'store/reducers';
 import { rootSaga } from 'store/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -9,6 +9,8 @@ const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
   appReducer,
   userReducer,
+  hotelsReducer,
+  filterReducer,
 });
 
 export const store = configureStore({

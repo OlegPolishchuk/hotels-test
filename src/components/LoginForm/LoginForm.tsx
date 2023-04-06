@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import styles from 'pages/login/Login.module.css';
 import { Button, Input } from 'shared/components';
 import { useAppDispatch } from 'shared/hooks';
-import { loginUser } from 'store/sagas/user/actions';
+import { loginUser } from 'store/sagas';
 import { LoginFormData } from 'types';
 
 const MAIN_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

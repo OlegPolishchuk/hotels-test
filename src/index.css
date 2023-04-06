@@ -47,6 +47,26 @@ body {
   padding: 0;
   font-size: 16px;
   color: var(--color-main);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-inactive);
+  scrollbar-gutter: stable;
+  scrollbar-arrow-color: var(--color-secondary);
+  scrollbar-base-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-inactive);
+  border-radius: 100vmax;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: 100vmax;
 }
 
 

@@ -24,7 +24,8 @@
       "store": ["store"],
       "selectors": ["store/selectors"],
       "services": ["services"],
-      "types": ["types"]
+      "types": ["types"],
+      "api/*": ["api/*"]
     }
   },
   "include": ["src"],

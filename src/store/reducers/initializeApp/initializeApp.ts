@@ -6,12 +6,13 @@ interface InitialState {
   // isUserAuth: boolean;
   status: AppStatus;
   isInitialise: boolean;
+  error: string;
 }
 
 const initialState: InitialState = {
   isInitialise: false,
   status: 'loading',
-  // isUserAuth: false,
+  error: '',
 };
 
 const appSlice = createSlice({
@@ -21,6 +22,9 @@ const appSlice = createSlice({
     initializeSuccess: state => {
       state.isInitialise = true;
       state.status = 'success';
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
     },
   },
 });

@@ -4,14 +4,21 @@ import styles from './HotelCard.module.css';
 
 import hotelIcon from 'assets/icon_hotel.svg';
 import { LikeButton, Rating } from 'shared/components';
+import { Hotel } from 'types';
 
-export const HotelCard = (): ReactElement => {
+interface Props {
+  hotel: Hotel;
+}
+
+export const HotelCard = ({ hotel }: Props): ReactElement => {
+  const { hotelName, stars, priceAvg } = hotel;
+
   return (
     <div className={styles.hotel}>
       <img src={hotelIcon} alt="hotel icon" />
       <div className={styles.description}>
         <div className={styles.header}>
-          <h4 className={styles.title}>Moscow Marriott Grand Hotel</h4>
+          <h4 className={styles.title}>{hotelName}</h4>
           <LikeButton />
         </div>
         <p className={styles.date}>
@@ -20,11 +27,11 @@ export const HotelCard = (): ReactElement => {
 
         <div className={styles.footer}>
           <div>
-            <Rating rating={5} />
+            <Rating rating={stars} />
           </div>
 
-          <div className={styles.price}>
-            Price: <span className={styles.price_bold}> 23 924</span>
+          <div className={styles.priceWrapper}>
+            Price: <span className={styles.price}>{priceAvg.toFixed(0)} &#8381;</span>
           </div>
         </div>
       </div>

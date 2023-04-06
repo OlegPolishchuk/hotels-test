@@ -1,2 +1,1 @@
-export { watcherLoginUser } from './userSagas';
-export { logoutUser, loginUser } from './actions';
+export { watcherLoginUser, loginUser, logoutUser } from './userSagas';

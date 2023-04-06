@@ -5,7 +5,7 @@ import { initAppActions, userActions } from 'store/reducers';
 
 const DELAY = 1000;
 
-export function* initializeAppSaga(): Generator {
+export function* initializeApp(): Generator {
   yield delay(DELAY);
   const user = (yield getUserFromLocalStorage()) as string;
 

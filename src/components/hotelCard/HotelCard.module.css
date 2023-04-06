@@ -3,7 +3,8 @@
   align-items: center;
   gap: 24px;
 
-  padding: 16px 16px 16px 0;
+  padding: 16px 0;
+  margin-right: 16px;
   border-bottom: 1px solid #E7E7E7;
 }
 
@@ -36,7 +37,7 @@
   justify-content: space-between;
 }
 
-.price {
+.priceWrapper {
   font-style: normal;
   font-weight: 300;
   font-size: 11px;
@@ -44,10 +45,12 @@
   color: var(--color-inactive)
 }
 
-.price_bold {
+.price {
   font-weight: 400;
   font-size: 17px;
-  margin-left: 18px;
+  margin-left: 8px;
+  display: inline-block;
+  min-width: 75px;
 
   color: var(--color-main)
 }

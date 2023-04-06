@@ -1,1 +1,1 @@
-export { initializeAppSaga } from './initializeSaga';
+export { initializeApp } from './initializeSaga';

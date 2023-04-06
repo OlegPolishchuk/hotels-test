@@ -1,11 +1,25 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
+
+import { selectCheckIn, selectCheckOut, selectLocation } from 'selectors';
 
 import styles from './Main.module.css';
 
 import { Breadcrumbs, Header, Hotels, SearchForm, Slider } from 'components';
 import { SortSwitcher } from 'shared/components';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
+import { fetchHotels } from 'store/sagas/hotels/hotels';
 
 export const Main = (): ReactElement => {
+  const dispatch = useAppDispatch();
+
+  const location = useAppSelector(selectLocation);
+  const checkIn = useAppSelector(selectCheckIn);
+  const checkOut = useAppSelector(selectCheckOut);
+
+  useEffect(() => {
+    dispatch(fetchHotels({ location, checkIn, checkOut }));
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <Header />

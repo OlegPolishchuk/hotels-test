@@ -14,6 +14,7 @@ export default defineConfig({
       selectors: '/src/store/selectors',
       services: '/src/services',
       types: '/src/types',
+      api: '/src/api',
     },
   },
 });

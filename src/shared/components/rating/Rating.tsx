@@ -9,7 +9,7 @@ interface Props {
   rating: number;
 }
 export const Rating = ({ rating }: Props): ReactElement => {
-  let updatedRating: number;
+  let updatedRating: number = rating;
 
   if (rating < MIN_RATING) updatedRating = MIN_RATING;
   if (rating > MAX_RATING) updatedRating = MIN_RATING;

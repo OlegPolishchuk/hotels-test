@@ -1,3 +1,8 @@
+.container {
+  height: 530px;
+  overflow-y: scroll;
+}
+
 .addedToFavorites {
   font-weight: 300;
   font-size: 17px;

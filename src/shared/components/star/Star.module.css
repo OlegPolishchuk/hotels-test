@@ -1,7 +1,7 @@
 .star {
-  fill: #6C6845;
+  fill: var(--color-inactive);
 }
 
 .active {
-  fill: #CDBC1E;
+  fill: #cdbc1e;
 }
