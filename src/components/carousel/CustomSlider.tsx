@@ -14,14 +14,14 @@ export const CustomSlider = (): ReactElement => {
         scrollMode={'remainder' as ScrollMode}
         withoutControls
       >
-        <img src="src/assets/slide_1.jpg" alt="slider 1" />
-        <img src="src/assets/slide_2.jpg" alt="slider 2" />
-        <img src="src/assets/slide_3.jpg" alt="slider 3" />
-        <img src="src/assets/slide_4.jpg" alt="slider 4" />
-        <img src="src/assets/slide_1.jpg" alt="slider 1" />
-        <img src="src/assets/slide_2.jpg" alt="slider 2" />
-        <img src="src/assets/slide_3.jpg" alt="slider 3" />
-        <img src="src/assets/slide_4.jpg" alt="slider 4" />
+        <img src="/carousel/slide_1.jpg" alt="slider 1" />
+        <img src="/carousel/slide_2.jpg" alt="slider 2" />
+        <img src="/carousel/slide_3.jpg" alt="slider 3" />
+        <img src="/carousel/slide_4.jpg" alt="slider 4" />
+        <img src="/carousel/slide_1.jpg" alt="slider 1" />
+        <img src="/carousel/slide_2.jpg" alt="slider 2" />
+        <img src="/carousel/slide_3.jpg" alt="slider 3" />
+        <img src="/carousel/slide_4.jpg" alt="slider 4" />
       </Carousel>
     </div>
   );

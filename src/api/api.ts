@@ -1,6 +1,6 @@
 import { RequestParams } from 'types';
 
-const baseURL = 'http://engine.hotellook.com/api/v2/cache.json';
+const baseURL = 'https://engine.hotellook.com/api/v2/cache.json';
 const defaultLimit = 20;
 
 export const API = {
