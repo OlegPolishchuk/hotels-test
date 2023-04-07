@@ -1,5 +1,7 @@
 import React, { ReactElement, useEffect } from 'react';
 
+import bg from '/login_bg.jpg';
+
 import { useNavigate } from 'react-router-dom';
 import { selectIsUserAuth } from 'selectors';
 
@@ -21,7 +23,7 @@ export const Login = (): ReactElement => {
   }, [isUserAuth]);
 
   return (
-    <div className={styles.login}>
+    <div className={styles.login} style={{ backgroundImage: `url(${bg})` }}>
       <div className={styles.wrapper}>
         <LoginForm />
       </div>
