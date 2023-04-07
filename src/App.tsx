@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import { Login, Main } from 'pages';
+import { Login, Main, NotFound } from 'pages';
 import { GlobalLoader, ProtectedRoutes } from 'shared/components';
 import { ROUTES } from 'shared/constants';
 import { useAppSelector } from 'shared/hooks';
@@ -29,7 +29,7 @@ export const App = (): ReactElement => {
             }
           />
 
-          <Route path="*" element={<Main />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </div>
