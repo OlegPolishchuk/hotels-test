@@ -7,3 +7,7 @@ export const getUserFromLocalStorage = (): string => {
 
   return userName === null ? '' : userName;
 };
+
+export const removeUserFromLocalStorage = (): void => {
+  localStorage.removeItem('user');
+};

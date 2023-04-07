@@ -15,6 +15,10 @@ const userSlice = createSlice({
     setUser: (state, action: PayloadAction<string>) => {
       state.userName = action.payload;
     },
+
+    removeUser: state => {
+      state.userName = '';
+    },
   },
 });
 

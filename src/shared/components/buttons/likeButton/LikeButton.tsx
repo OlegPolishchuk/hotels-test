@@ -1,6 +1,7 @@
 import React, {
   ButtonHTMLAttributes,
   DetailedHTMLProps,
+  memo,
   MouseEvent,
   ReactElement,
 } from 'react';
@@ -11,20 +12,15 @@ interface Props
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   isLike: boolean;
 }
-export const LikeButton = ({
-  isLike = false,
-  onClick,
-  disabled,
-  ...restProps
-}: Props): ReactElement => {
-  const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
-    onClick && onClick(event);
-  };
+export const LikeButton = memo(
+  ({ isLike = false, onClick, disabled, ...restProps }: Props): ReactElement => {
+    const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
+      onClick && onClick(event);
+    };
 
-  const activeClassName = isLike ? styles.active : '';
+    const activeClassName = isLike ? styles.active : '';
 
-  return (
-    <div>
+    return (
       <button type="button" onClick={handleClick} disabled={disabled} {...restProps}>
         <svg
           className={`${styles.button__like__img} ${activeClassName}`}
@@ -40,6 +36,6 @@ export const LikeButton = ({
           />
         </svg>
       </button>
-    </div>
-  );
-};
+    );
+  },
+);

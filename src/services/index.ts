@@ -1,1 +1,5 @@
-export { getUserFromLocalStorage, setUserToLocalStorage } from './localStorage';
+export {
+  getUserFromLocalStorage,
+  setUserToLocalStorage,
+  removeUserFromLocalStorage,
+} from './localStorage';

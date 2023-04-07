@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback, useMemo } from 'react';
 
 import { selectFavorites } from 'selectors';
 
@@ -30,14 +30,18 @@ export const HotelCard = ({
 
   const favoriteHotels = useAppSelector(selectFavorites);
 
-  const likedState = !!favoriteHotels.find(
-    favoriteHotel =>
-      hotel.hotelId === favoriteHotel.hotelId &&
-      checkIn === favoriteHotel.checkIn &&
-      daysCount === favoriteHotel.daysCount,
+  const likedState = useMemo(
+    () =>
+      !!favoriteHotels.find(
+        favoriteHotel =>
+          hotel.hotelId === favoriteHotel.hotelId &&
+          checkIn === favoriteHotel.checkIn &&
+          daysCount === favoriteHotel.daysCount,
+      ),
+    [hotel.hotelId, checkIn, daysCount, favoriteHotels],
   );
 
-  const handleToggleFavorite = (): void => {
+  const handleToggleFavorite = useCallback((): void => {
     const { addHotel, removeHotel } = favoritesActions;
     const favoriteHotel: FavoriteHotel = {
       ...hotel,
@@ -46,7 +50,7 @@ export const HotelCard = ({
     };
 
     dispatch(likedState ? removeHotel(favoriteHotel) : addHotel(favoriteHotel));
-  };
+  }, [likedState]);
 
   return (
     <div className={styles.hotel}>

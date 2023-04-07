@@ -23,7 +23,6 @@ export const Login = (): ReactElement => {
   return (
     <div className={styles.login}>
       <div className={styles.wrapper}>
-        <h3 className={styles.title}>Simple Hotel Check</h3>
         <LoginForm />
       </div>
     </div>

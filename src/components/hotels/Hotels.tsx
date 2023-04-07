@@ -4,6 +4,7 @@ import { selectCheckIn, selectCheckOut, selectHotels } from 'selectors';
 
 import styles from './Hotels.module.css';
 
+import { FavoritesCount } from 'components/favoritesCount/FavoritesCount';
 import { HotelCard } from 'components/hotelCard/HotelCard';
 import { NothingToShow } from 'shared/components';
 import { useAppSelector } from 'shared/hooks';
@@ -16,7 +17,7 @@ export const Hotels = (): ReactElement => {
   return (
     <div className={styles.wrapper}>
       <p className={styles.addedToFavorites}>
-        Добавлено в Избранное: <span className={styles.hotelCount}>0</span> отелей
+        <FavoritesCount />
       </p>
 
       <div className={styles.container}>
