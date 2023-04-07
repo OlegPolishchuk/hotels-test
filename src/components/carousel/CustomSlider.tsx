@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import 'pure-react-carousel/dist/react-carousel.es.css';
-
 import Carousel, { ScrollMode } from 'nuka-carousel';
 
 import styles from './Carousel.module.css';
