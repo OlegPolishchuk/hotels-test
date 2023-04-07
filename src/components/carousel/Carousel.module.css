@@ -1,6 +1,10 @@
 .slider {
-  display: flex;
+  /*display: flex;*/
+  width: 600px;
+  overflow: hidden;
   justify-content: space-between;
+
+  height: 149px;
 }
 
 .slider img {

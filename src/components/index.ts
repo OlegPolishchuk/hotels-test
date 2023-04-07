@@ -2,7 +2,7 @@ export { LoginForm } from './LoginForm/LoginForm';
 export { Header } from './header/Header';
 export { SearchForm } from './searchForm/SearchForm';
 export { Breadcrumbs } from './breadcrumbs/Breadcrumbs';
-export { Slider } from './slider/Slider';
+export { CustomSlider } from 'components/carousel/CustomSlider';
 export { Hotels } from './hotels/Hotels';
 export { HotelCard } from './hotelCard/HotelCard';
 export { Favorites } from './favorites/Favorites';

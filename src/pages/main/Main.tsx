@@ -4,7 +4,14 @@ import { selectCheckIn, selectCheckOut, selectLocation } from 'selectors';
 
 import styles from './Main.module.css';
 
-import { Breadcrumbs, Favorites, Header, Hotels, SearchForm, Slider } from 'components';
+import {
+  Breadcrumbs,
+  Favorites,
+  Header,
+  Hotels,
+  SearchForm,
+  CustomSlider,
+} from 'components';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { formatCheckOut, formatDate } from 'shared/ustils';
 import { fetchHotels } from 'store/sagas/hotels/hotels';
@@ -39,7 +46,7 @@ export const Main = (): ReactElement => {
           </div>
 
           <div className={styles.slider}>
-            <Slider />
+            <CustomSlider />
           </div>
 
           <Hotels />
