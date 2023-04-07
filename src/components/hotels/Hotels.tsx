@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { selectHotels } from 'selectors';
+import { selectCheckIn, selectCheckOut, selectHotels } from 'selectors';
 
 import styles from './Hotels.module.css';
 
@@ -10,6 +10,8 @@ import { useAppSelector } from 'shared/hooks';
 
 export const Hotels = (): ReactElement => {
   const hotels = useAppSelector(selectHotels);
+  const checkIn = useAppSelector(selectCheckIn);
+  const checkOut = useAppSelector(selectCheckOut);
 
   return (
     <div className={styles.wrapper}>
@@ -22,7 +24,12 @@ export const Hotels = (): ReactElement => {
           <NothingToShow title="По вашему запросу ничего не найдено" />
         )}
         {hotels.map(hotel => (
-          <HotelCard key={hotel.hotelId} hotel={hotel} />
+          <HotelCard
+            key={hotel.hotelId}
+            hotel={hotel}
+            checkIn={checkIn}
+            daysCount={checkOut}
+          />
         ))}
       </div>
     </div>

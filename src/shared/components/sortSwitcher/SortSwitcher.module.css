@@ -47,8 +47,15 @@
   margin: -2px 0 0;
 }
 
-.switcher.active,
-.arrow.active{
+.switcher.active {
   color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.switcher.active.desc .arrow.desc {
+  border-color: var(--color-secondary);
+}
+
+.switcher.active.asc .arrow.asc {
   border-color: var(--color-secondary);
 }

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { selectCheckIn, selectCheckOut, selectFavorites } from 'selectors';
+import { selectFavorites } from 'selectors';
 
 import styles from './HotelCard.module.css';
 
@@ -9,30 +9,43 @@ import { LikeButton, Rating } from 'shared/components';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { formatDate, formatDaysCount } from 'shared/ustils';
 import { favoritesActions } from 'store/reducers';
-import { Hotel } from 'types';
+import { FavoriteHotel, Hotel } from 'types';
 
 interface Props {
-  hotel: Hotel;
+  hotel: Hotel | FavoriteHotel;
+  checkIn: string;
+  daysCount: string;
   withIcon?: boolean;
 }
 
-export const HotelCard = ({ hotel, withIcon = true }: Props): ReactElement => {
-  const { hotelName, stars, priceAvg, hotelId } = hotel;
+export const HotelCard = ({
+  hotel,
+  checkIn,
+  daysCount,
+  withIcon = true,
+}: Props): ReactElement => {
+  const { hotelName, stars, priceAvg } = hotel;
 
   const dispatch = useAppDispatch();
 
-  const checkIn = useAppSelector(selectCheckIn);
-  const daysCount = useAppSelector(selectCheckOut);
   const favoriteHotels = useAppSelector(selectFavorites);
 
   const likedState = !!favoriteHotels.find(
-    favoriteHotel => hotel.hotelId === favoriteHotel.hotelId,
+    favoriteHotel =>
+      hotel.hotelId === favoriteHotel.hotelId &&
+      checkIn === favoriteHotel.checkIn &&
+      daysCount === favoriteHotel.daysCount,
   );
 
   const handleToggleFavorite = (): void => {
     const { addHotel, removeHotel } = favoritesActions;
+    const favoriteHotel: FavoriteHotel = {
+      ...hotel,
+      checkIn,
+      daysCount,
+    };
 
-    dispatch(likedState ? removeHotel(hotelId) : addHotel(hotel));
+    dispatch(likedState ? removeHotel(favoriteHotel) : addHotel(favoriteHotel));
   };
 
   return (
@@ -44,7 +57,7 @@ export const HotelCard = ({ hotel, withIcon = true }: Props): ReactElement => {
           <LikeButton onClick={handleToggleFavorite} isLike={likedState} />
         </div>
         <p className={styles.date}>
-          {formatDate(checkIn, 'D MMMM YYYY')}{' '}
+          {formatDate(checkIn, 'D MMMM YYYY')}
           <span>
             - {daysCount} {formatDaysCount(+daysCount)}
           </span>

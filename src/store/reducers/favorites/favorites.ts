@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Hotel } from 'types';
+import { FavoriteHotel } from 'types';
 
 interface InitialState {
-  hotels: Hotel[];
+  hotels: FavoriteHotel[];
 }
 
 const initialState: InitialState = {
@@ -14,11 +14,18 @@ const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    addHotel: (state, action: PayloadAction<Hotel>) => {
+    addHotel: (state, action: PayloadAction<FavoriteHotel>) => {
       state.hotels.push(action.payload);
     },
-    removeHotel: (state, action: PayloadAction<number>) => {
-      state.hotels = state.hotels.filter(hotel => hotel.hotelId !== action.payload);
+    removeHotel: (state, action: PayloadAction<FavoriteHotel>) => {
+      const comparable = action.payload;
+
+      state.hotels = state.hotels.filter(
+        ({ hotelId, checkIn, daysCount }: FavoriteHotel) =>
+          hotelId !== comparable.hotelId &&
+          checkIn === comparable.checkIn &&
+          daysCount === comparable.daysCount,
+      );
     },
   },
 });

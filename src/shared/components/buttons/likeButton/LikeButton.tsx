@@ -17,7 +17,6 @@ export const LikeButton = ({
   disabled,
   ...restProps
 }: Props): ReactElement => {
-  console.log('Like button rendered');
   const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
     onClick && onClick(event);
   };

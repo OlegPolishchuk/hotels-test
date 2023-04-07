@@ -1,5 +1,5 @@
 import { RootState } from 'store/store';
-import { Hotel } from 'types';
+import { FavoriteHotel } from 'types';
 
-export const selectFavorites = (state: RootState): Hotel[] =>
+export const selectFavorites = (state: RootState): FavoriteHotel[] =>
   state.favoritesReducer.hotels;
