@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/hooks';
 import { loginUser } from 'store/sagas';
 import { LoginFormData } from 'types';
 
-const MAIN_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const MAIN_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
 export const LoginForm = (): ReactElement => {
   const dispatch = useAppDispatch();

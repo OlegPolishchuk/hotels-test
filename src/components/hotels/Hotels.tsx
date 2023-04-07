@@ -26,7 +26,7 @@ export const Hotels = (): ReactElement => {
         )}
         {hotels.map(hotel => (
           <HotelCard
-            key={hotel.hotelId}
+            key={`${hotel.hotelId}_${hotel.priceAvg}`}
             hotel={hotel}
             checkIn={checkIn}
             daysCount={checkOut}

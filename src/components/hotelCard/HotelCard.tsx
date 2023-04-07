@@ -43,6 +43,7 @@ export const HotelCard = ({
 
   const handleToggleFavorite = useCallback((): void => {
     const { addHotel, removeHotel } = favoritesActions;
+
     const favoriteHotel: FavoriteHotel = {
       ...hotel,
       checkIn,

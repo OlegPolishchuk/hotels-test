@@ -20,12 +20,18 @@ const favoritesSlice = createSlice({
     removeHotel: (state, action: PayloadAction<FavoriteHotel>) => {
       const comparable = action.payload;
 
-      state.hotels = state.hotels.filter(
-        ({ hotelId, checkIn, daysCount }: FavoriteHotel) =>
-          hotelId !== comparable.hotelId &&
-          checkIn === comparable.checkIn &&
-          daysCount === comparable.daysCount,
+      const index = state.hotels.findIndex(
+        ({ hotelId, checkIn, daysCount, priceAvg }: FavoriteHotel) => {
+          return (
+            hotelId === comparable.hotelId &&
+            checkIn === comparable.checkIn &&
+            daysCount === comparable.daysCount &&
+            priceAvg === comparable.priceAvg
+          );
+        },
       );
+
+      state.hotels.splice(index, 1);
     },
   },
 });

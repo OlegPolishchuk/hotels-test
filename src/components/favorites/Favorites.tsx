@@ -64,7 +64,7 @@ export const Favorites = (): ReactElement => {
 
         {filteredHotels.map(hotel => (
           <HotelCard
-            key={hotel.hotelId}
+            key={`${hotel.hotelId}_${hotel.priceAvg}`}
             hotel={hotel}
             checkIn={hotel.checkIn}
             daysCount={hotel.daysCount}
