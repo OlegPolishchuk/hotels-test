@@ -41,7 +41,7 @@ export const Main = (): ReactElement => {
 
         <main className={`${styles.mainContent} wrapper`}>
           <div className={styles.header}>
-            <Breadcrumbs paths={['Отели', 'Москва']} />
+            <Breadcrumbs paths={['Отели', location]} />
             <time className={styles.time}>{formatDate(checkIn, 'D MMMM YYYY')}</time>
           </div>
 
