@@ -28,7 +28,7 @@ export const App = (): ReactElement => {
               </ProtectedRoutes>
             }
           />
-
+          <Route path={ROUTES.notFound} element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       )}
