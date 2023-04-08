@@ -15,8 +15,7 @@ export const Breadcrumbs = ({ paths }: Props): ReactElement => {
           <span>{path}</span>
 
           <span className={styles.arrow}>
-            {' '}
-            <VectorRightIcon />{' '}
+            <VectorRightIcon />
           </span>
         </Fragment>
       ))}
