@@ -6,3 +6,4 @@ export { SortSwitcher } from './sortSwitcher/SortSwitcher';
 export { Star } from './star/Star';
 export { Rating } from './rating/Rating';
 export { NothingToShow } from './nothingToShow/NothingToShow';
+export { LogoutIcon, LikeIcon, StarIcon, HotelIcon, VectorRightIcon } from './icons';

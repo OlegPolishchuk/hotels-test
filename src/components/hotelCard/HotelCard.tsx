@@ -4,8 +4,7 @@ import { selectFavorites } from 'selectors';
 
 import styles from './HotelCard.module.css';
 
-import hotelIcon from 'assets/icon_hotel.svg';
-import { LikeButton, Rating } from 'shared/components';
+import { HotelIcon, LikeButton, Rating } from 'shared/components';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { formatDate, formatDaysCount } from 'shared/ustils';
 import { favoritesActions } from 'store/reducers';
@@ -55,12 +54,14 @@ export const HotelCard = ({
 
   return (
     <div className={styles.hotel}>
-      {withIcon && <img src={hotelIcon} alt="hotel icon" />}
+      {withIcon && <HotelIcon />}
+
       <div className={styles.description}>
         <div className={styles.header}>
           <h4 className={styles.title}>{hotelName}</h4>
           <LikeButton onClick={handleToggleFavorite} isLike={likedState} />
         </div>
+
         <p className={styles.date}>
           {formatDate(checkIn, 'D MMMM YYYY')}
           <span>
